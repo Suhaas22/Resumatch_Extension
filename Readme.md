@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/badge/ResuMatch-AI%20Resume%20Analyzer-6366f1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="ResuMatch"/>
 
-# 🎯 ResuMatch — AI-Powered Resume Analyzer
+# ResuMatch — AI-Powered Resume Analyzer
 
 ### *Know your match. Close the gap. Land the job.*
 
