@@ -255,8 +255,6 @@ Contributions are welcome! If you have ideas to improve ResuMatch:
 
 ## 📬 Contact
 
-**Made with 💙 by [Your Name]**
-
 - 🔗 [LinkedIn](www.linkedin.com/in/suhaas-bommadevara)
 - 📧 bommadevarasuhaas7@gmail.com
 
