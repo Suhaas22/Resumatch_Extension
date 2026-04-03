@@ -257,9 +257,8 @@ Contributions are welcome! If you have ideas to improve ResuMatch:
 
 **Made with 💙 by [Your Name]**
 
-- 🔗 [LinkedIn](https://linkedin.com/in/yourprofile)
-- 🐙 [GitHub](https://github.com/yourusername)
-- 📧 youremail@example.com
+- 🔗 [LinkedIn](www.linkedin.com/in/suhaas-bommadevara)
+- 📧 bommadevarasuhaas7@gmail.com
 
 ---
 
