@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResuMatch</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">📄</div>
+      <span class="logo-name">Resu<em>match</em></span>
+    </div>
+    <div class="badge">AI Powered</div>
+  </header>
+  <div class="screen" id="screenInput">
+    <div class="jd-status" id="jdStatus">
+      <div class="jd-detecting">
+        <div class="spinner"></div>
+        Detecting job description...
+      </div>
+    </div>
+
+    <div class="jd-preview hidden" id="jdPreview">
+      <div class="jd-preview-header">
+        <span class="jd-preview-icon">✅</span>
+        <span class="jd-preview-label">Job Description Detected</span>
+      </div>
+      <div class="jd-preview-text" id="jdPreviewText"></div>
+    </div>
+
+    <div class="jd-notfound hidden" id="jdNotFound">
+      <span>⚠️</span>
+      <span>No job description found.<br/>Open a LinkedIn or Naukri job posting first.</span>
+    </div>
+
+    <div class="upload-area" id="uploadArea">
+      <div class="upload-icon">📎</div>
+      <div class="upload-title">Upload your Resume</div>
+      <div class="upload-hint">PDF only</div>
+      <input type="file" id="resumeInput" accept=".pdf" hidden />
+    </div>
+
+    <div class="file-pill hidden" id="filePill">
+      <span class="file-pill-icon">📋</span>
+      <div class="file-pill-body">
+        <div class="file-pill-name" id="filePillName"></div>
+        <div class="file-pill-meta" id="filePillMeta"></div>
+      </div>
+      <button class="file-pill-remove" id="filePillRemove">✕</button>
+    </div>
+    <button class="btn-analyse" id="btnAnalyse" disabled>
+      <span class="btn-icon">⚡</span>
+      Analyse Match
+    </button>
+    <div class="error-bar hidden" id="errorBar"></div>
+  </div>
+
+  <div class="screen hidden" id="screenLoading">
+    <div class="loading-wrap">
+      <div class="loading-ring"></div>
+      <div class="loading-steps" id="loadingSteps">
+        <div class="loading-step active">Parsing Resume</div>
+        <div class="loading-step">Extracting Skills</div>
+        <div class="loading-step">Scoring Fit</div>
+        <div class="loading-step">Building Report</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen hidden" id="screenResults">
+
+    <div class="score-section">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 120 120" class="ring-svg">
+          <circle class="ring-bg" cx="60" cy="60" r="48"/>
+          <circle class="ring-arc" id="ringArc" cx="60" cy="60" r="48"
+            stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
+        </svg>
+        <div class="ring-inner">
+          <span class="ring-num" id="ringNum">0</span>
+          <span class="ring-sub">/ 100</span>
+        </div>
+      </div>
+      <div class="score-info">
+        <div class="score-verdict" id="scoreVerdict"></div>
+        <div class="score-desc" id="scoreDesc"></div>
+      </div>
+    </div>
+
+    <div class="breakdown">
+      <div class="breakdown-item">
+        <div class="breakdown-label">Skill Match</div>
+        <div class="breakdown-track">
+          <div class="breakdown-fill" id="barSkill" style="background:#bf7fff"></div>
+        </div>
+        <div class="breakdown-pct" id="pctSkill">0%</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-label">Text Relevance</div>
+        <div class="breakdown-track">
+          <div class="breakdown-fill" id="barText" style="background:#4de8b8"></div>
+        </div>
+        <div class="breakdown-pct" id="pctText">0%</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-label">Experience Fit</div>
+        <div class="breakdown-track">
+          <div class="breakdown-fill" id="barExp" style="background:#ffc844"></div>
+        </div>
+        <div class="breakdown-pct" id="pctExp">0%</div>
+      </div>
+      <div class="breakdown-item">
+        <div class="breakdown-label">Projects Score</div>
+        <div class="breakdown-track">
+          <div class="breakdown-fill" id="barProj" style="background:#ff7eb3"></div>
+        </div>
+        <div class="breakdown-pct" id="pctProj">0%</div>
+      </div>
+    </div>
+
+    <div class="skills-section">
+      <div class="skills-title">❌ Missing Skills</div>
+      <div class="chips" id="missingSkills"></div>
+    </div>
+
+    <div class="skills-section">
+      <div class="skills-title">✅ Matched Skills</div>
+      <div class="chips" id="matchedSkills"></div>
+    </div>
+
+    <div class="suggestions-section">
+      <div class="suggestions-title">💡 Suggestions</div>
+      <div class="suggestions-list" id="suggestionsList"></div>
+    </div>
+
+    <button class="btn-again" id="btnAgain">← Analyse Another</button>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
